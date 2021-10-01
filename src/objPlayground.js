@@ -35,13 +35,25 @@
 
 const calculator = (number1, number2) => {
   const objeto = {
-    sum: (number1 + number2),
-    mult:( number2 * number1),
-    div: (number2 / number1),
-    sub: (number2 - number1),
+    sum: number1 + number2,
+    mult: number2 * number1,
+    div: Math.floor(number1 / number2),
+    sub: number1 - number2,
   };
+  return objeto;
 };
 
-const arrayGenerator = (type, object) => {};
+const arrayGenerator = (type, object) => {
+  if (type === 'keys') {
+    return Object['keys'](object);
+  }
+  if (type === 'values') {
+    return Object['values'](object);
+  }
+  if (type === 'entries') {
+    return Object['entries'](object);
+  }
+  // return Object[type](object);
+};
 
 module.exports = { calculator, arrayGenerator };
